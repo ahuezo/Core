@@ -86,7 +86,7 @@ class EloquentRepository extends BaseRepository
     public function bySlug($slug, $attributes = ['*'])
     {
         $model = $this
-            ->findBy(column('slug'), $slug, $attributes);
+            ->findBy('slug', $slug, $attributes);
 
         if (is_null($model)) {
             abort(404);
@@ -97,7 +97,7 @@ class EloquentRepository extends BaseRepository
 
     public function published()
     {
-        return $this->where(column('status'), '1');
+        return $this->where('status', '1');
     }
 
     /**
